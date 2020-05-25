@@ -26,3 +26,17 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html', {"message":message})    
+
+
+
+def category(request, id):
+    '''
+    Method to search by images or category
+    '''
+    # categories = Category.get_all_categories()
+    images = Image.objects.filter(category__id=id)
+    context = {
+        "categories":categories,
+        "images":images
+    }
+    return render(request, 'category.html', context)        
