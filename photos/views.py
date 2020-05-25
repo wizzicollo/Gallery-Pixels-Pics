@@ -40,3 +40,5 @@ def category(request, id):
         "images":images
     }
     return render(request, 'category.html', context)        
+
+  
