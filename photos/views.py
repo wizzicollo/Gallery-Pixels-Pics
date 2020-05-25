@@ -5,3 +5,24 @@ from django.shortcuts import render
 def home(request):
     images = Picture.objects.all()
     return render (request, 'home.html', {"images":images})
+
+
+def search_results(request):
+    '''
+    Method to search by location or category
+    '''
+    if 'result' in request.GET and request.GET["result"]:
+        search_term = request.GET.get("result")
+        searched_images = Picture.search_by_category(search_term)
+       
+        message = f"{search_term}"
+        return render(request, 'search.html', {"message":message, "images":searched_images})
+    elif 'result' in request.GET and request.GET["result"]:
+        search_term = request.GET.get("result")
+        searched_images = Picture.search_by_location(search_term)
+        message = f"{search_term}"    
+
+        return render(request, 'search.html', {"message":message, "images":searched_images})
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'search.html', {"message":message})    
