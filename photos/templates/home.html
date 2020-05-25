@@ -1,0 +1,65 @@
+{%extends 'base.html'%}
+{%block content%}
+<div id="collins">
+
+    <p class="para">Make a statement without saying a word.</p>
+  
+    <p class=" mute">Hint:Search on the Category of photos you would like.</p>
+    <P class="ppp">(Food,Travel,Entertainment,Sports,Animals,Nature)</P>
+
+</div>
+
+
+<div class="container-fluid">
+    <div class="row mt-3">
+        {% for image in images %}
+        <div class="col-sm-3">
+            <div class="img-box mb-2" style="width: 20rem;">
+
+                <img class="portfolio thumbnail img-el img-fluid" src="{{image.image.url}}" alt="IMAGE LOADING..."
+                    data-toggle="modal" data-target="#exampleModalCenter-{{image.id}}">
+            </div>
+            <div class="words">
+                <h4 class="text-bold"> Title:{{image.title}} </h4>
+                <p>
+                    <p>Posted: {{image.posted_date}}</p>
+
+                </p>
+                <p>
+
+                </p>
+                <hr>
+            </div>
+        </div>
+
+        {% endfor %}
+        {% for image in images %}
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter-{{image.id}}" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="{{image.image.url}}" alt="">
+                        <p>Image Title :{{image.title}}</p>
+                        <p>Image Description: {{image.description}}</p>
+                        <p>Image Category: {{image.category}}</p>
+                        <p>Image Location: {{image.location}}</p>
+                        <p>Posted On: {{image.posted_date}}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+
+        {%endblock%}
