@@ -24,3 +24,16 @@ class Picture(models.Model):
         '''
         result = cls.objects.filter(category__category__icontains=search_term)
         return result 
+
+class Category(models.Model):
+    category = models.CharField(max_length =30)
+    
+    def __str__(self):
+        return self.category
+    
+    def search_by_category(cls,search_term):
+        locate = cls.objects.filter(title__icontains=search_term)
+        return locate
+    
+    def save_category(self):
+            self.save()
