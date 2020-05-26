@@ -1,4 +1,9 @@
+#Environments
 virtual/
-*.pyc
-.vscode
 .my-project-env
+
+#Applications
+*.pyc
+
+#Visual Studio
+.vscode
