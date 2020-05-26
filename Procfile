@@ -1,1 +1,4 @@
-web: gunicorn djangoherokuapp.wsgi --log-file -
+release: python manage.py makemigrations
+release: python manage.py migrate
+
+web: gunicorn photogalpicxels.wsgi 

@@ -4,6 +4,7 @@ virtual/
 
 #Applications
 *.pyc
+._pycache_
 
 #Visual Studio
 .vscode
