@@ -5,7 +5,7 @@
   Collins Kiprutoh
 
 ## DESCRIPTION 
-  This is a photo gallery web Application where you can view photos and see the details of each photo   
+  This is a photo gallery web Application where you can view photos and see the details of each photo and be able to copy the link of the photo incase you want to download
 
 ## Features
 As a user of the application you will be able to:
