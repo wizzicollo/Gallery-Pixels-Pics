@@ -11,10 +11,18 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 import django_heroku
 import dj_database_url
 from decouple import config,Csv
 
+# DATABASE_NAME = os.environ['DJANGO_DB_NAME']
+# DATABASE_USER = os.environ['DJANGO_DB_USER']
+# DATABASE_PASSWORD = os.environ['DJANGO_DB_PASS']
+
+# SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
@@ -67,6 +75,7 @@ ALLOWED_HOSTS = ["*"]
 INSTALLED_APPS = [
     'photos.apps.PhotosConfig',
     'bootstrap3',
+    'cloudinary',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -76,6 +85,12 @@ INSTALLED_APPS = [
  
 ]
 
+cloudinary.config(
+  cloud_name = os.environ.get('CLOUD_NAME'),
+  api_key = os.environ.get('API_KEY'),
+  api_secret = os.environ.get('API_SECRET'),
+  secure = True
+)
 
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',

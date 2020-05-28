@@ -8,3 +8,5 @@ virtual/
 
 #Visual Studio
 .vscode
+
+.bashrc
