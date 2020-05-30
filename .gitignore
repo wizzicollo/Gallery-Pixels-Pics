@@ -10,3 +10,6 @@ virtual/
 .vscode
 
 .bashrc
+
+
+.env
